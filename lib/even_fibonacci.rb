@@ -1,5 +1,5 @@
-def even_fibonacci_sum(limit, previous=1, current=2)
-  even_sum = 2
+def even_fibonacci_sum(limit)
+  previous, current, even_sum = 1, 2, 2
   loop do 
     fib = previous + current
     even_sum += fib if fib.even?  
