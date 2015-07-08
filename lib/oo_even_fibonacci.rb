@@ -8,15 +8,17 @@ class EvenFibonacci
   def sum
     first = 1
     second = 2
-    fibs = [1, 2]
     fib = 0
+    sum = 2
     while fib < count
       fib = first + second
-      fibs << fib if fib < count && fib.even?
+      sum +=  fib if fib < count && fib.even?
       first = second
       second = fib
     end
-    fibs.reject{|fib| fib == 1}.inject(0){|sum, fib| sum + fib}     
+    sum    
   end
-  
+
+
+
 end

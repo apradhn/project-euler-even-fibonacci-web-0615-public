@@ -1,13 +1,11 @@
-def even_fibonacci_sum(count)
-  first = 1
-  second = 2
-  fibs = [1, 2]
-  fib = 0
-  while fib < count
-    fib = first + second
-    fibs << fib if fib < count && fib.even?
-    first = second
-    second = fib
+def even_fibonacci_sum(limit, previous=1, current=2)
+  even_sum = 2
+  loop do 
+    fib = previous + current
+    even_sum += fib if fib.even?  
+    previous = current
+    current = fib 
+    break if previous + current > limit
   end
-  fibs.reject{|fib| fib == 1}.inject(0){|sum, fib| sum + fib}
+  even_sum
 end
