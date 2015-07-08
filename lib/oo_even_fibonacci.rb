@@ -1,24 +1,20 @@
 class EvenFibonacci
-  attr_accessor :count
+  attr_accessor :limit
 
-  def initialize(count)
-    @count = count
+  def initialize(limit)
+    @limit = limit
   end
 
   def sum
-    first = 1
-    second = 2
-    fib = 0
-    sum = 2
-    while fib < count
-      fib = first + second
-      sum +=  fib if fib < count && fib.even?
-      first = second
-      second = fib
+    previous, current, even_sum = 1, 2, 2
+    loop do 
+      fib = previous + current
+      previous = current
+      current = fib 
+      even_sum += fib if fib.even?      
+      break if previous + current > limit
     end
-    sum    
+    even_sum
   end
-
-
 
 end
